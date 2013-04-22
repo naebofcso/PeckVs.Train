@@ -16,7 +16,8 @@ public class MyWindow extends JComponent
 	 */
 	private static final long serialVersionUID = 1L;
 	private JFrame frame;
-
+	private Dimension size;
+	
 	public MyWindow()
 	{
 		super();
@@ -25,7 +26,7 @@ public class MyWindow extends JComponent
 	public void initialize()
 	{
 		frame = new JFrame();
-		Dimension size = PeckUtils.getScreenSize();
+		size = PeckUtils.getScreenSize();
 		frame.setPreferredSize(new Dimension(size.width/2, size.height/2));
 		frame.setTitle("Peck Vs. Train");
 		JPanel contentArea = new JPanel();
@@ -35,8 +36,8 @@ public class MyWindow extends JComponent
 		frame.setContentPane(contentArea);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
+		frame.setLocation(size.width/4, size.height/4);
 		frame.setVisible(true);
-		frame.setLocation(size.width/2, 0);
 	}
 	public static void main(String [] args)
 	{
