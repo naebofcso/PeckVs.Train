@@ -5,13 +5,9 @@ public class PeckVsTrainMain {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		InvisibleGrid grid = new InvisibleGrid(30,30);
-		Chicken peck = new Chicken();
-		grid.add(peck);
+	public static void main(String[] args) 
+	{
 		
-		
-	    grid.setVisible(true);
 
 	}
 

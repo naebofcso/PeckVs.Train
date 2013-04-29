@@ -16,18 +16,20 @@ public class Chicken
 private BufferedImage image;
 private int row;
 private int col;
+//Needs instance variables for its various states using booleans to modify//
+//its behavior//
 /**
 	 * @param args
 	 */
 	public static void main(String[] args) 
 	{
-		 new Chicken();// TODO Auto-generated method stub
+		 new Chicken();
 
 	}
 	
 	public Chicken()
 	{
-		new Chicken();
+		
 	}
 	
 

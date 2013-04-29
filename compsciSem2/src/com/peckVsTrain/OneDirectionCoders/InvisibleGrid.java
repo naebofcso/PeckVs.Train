@@ -1,61 +1,31 @@
 package com.peckVsTrain.OneDirectionCoders;
 
+import java.awt.Dimension;
 
-import java.awt.GridLayout;
-import javax.swing.JButton;
 
-public class InvisibleGrid extends MyWindow 
+
+
+public class InvisibleGrid  
 {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	/**
-	 * @param args
-	 */
-	MyWindow myWindow = new MyWindow();
+	private Dimension screenSize;
+	private int [] [] gridLocations;
 	
-	
-	
-	
-	public InvisibleGrid(int width, int length)
+	public InvisibleGrid()
 	{
-	
-	myWindow.setLayout(new GridLayout (width, length));
-	//myWindow.pack();
-	myWindow.setVisible(true); 
-	JButton [][] grid = new JButton[width][length];
-	
-		for (int i = 0; i <grid.length; i ++)
-		{
-			for (int k = 0; k <grid.length; k ++)
-			{
-			grid[i][k] = new JButton("("+i+", "+k+")");
-			myWindow.add(grid[i][k]);
-			}
-		}
-	
-	
-	
+		
+	}
+	public InvisibleGrid(Dimension screenDim)
+	{
+		screenSize = screenDim;
+		//Modify so that it creates the right number of grid spaces//
+		gridLocations = new int [screenSize.width/80] [screenSize.height/80];
 	}
 	
-	public void setLocation(int i, int j) 
+	public int [] [] intializeGrid(int [] [] myGrid)
 	{
+		//add the correct pixel values for each square of the grid//
+		return myGrid;
 	}
-	
-	public void add(Chicken peck)
-	{
-		add(myWindow, peck);
-	}
-	
-	
-	public static void main(String[] args) 
-	{
-		 new InvisibleGrid(30,30);
-
-	}
-
-	
   
 }
 	
