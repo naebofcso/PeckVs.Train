@@ -7,8 +7,7 @@ public class PeckVsTrainMain {
 	 */
 	public static void main(String[] args) 
 	{
-		
-
+		MyWindow mainWindow = new MyWindow();
 	}
 
 }

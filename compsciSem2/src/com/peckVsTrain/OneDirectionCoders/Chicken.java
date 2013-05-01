@@ -23,7 +23,7 @@ private int col;
 	 */
 	public static void main(String[] args) 
 	{
-		 new Chicken();
+		 
 
 	}
 	
