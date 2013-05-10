@@ -3,7 +3,12 @@ package com.peckVsTrain.OneDirectionCoders;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -46,8 +51,21 @@ public class MyWindow extends JComponent
 		test.setVisible(true);
 	}
 	//Adds objects to the window//
-	public void add()
+	public void add(String URLlocation)
 	{
-		
+		BufferedImage image = null;
+		try 
+		  {                
+	          image = ImageIO.read(new File(URLlocation));
+	       } catch (IOException ex) {
+	            // handle exception...
+	       }
+		paintComponent(null, image);
+	    }
+	protected void paintComponent(Graphics g, BufferedImage image) {
+        super.paintComponent(g);
+        g.drawImage(image, 0, 0, null); // see javadoc for more info on the parameters            
+    }
+
 	}
-}
+
