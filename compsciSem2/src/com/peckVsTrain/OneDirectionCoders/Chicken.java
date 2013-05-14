@@ -8,6 +8,10 @@ import javax.swing.JComponent;
  
 public class Chicken extends JComponent implements KeyListener
 {
+/**
+	 * 
+	 */
+private static final long serialVersionUID = 1L;
 private int row;
 private int col;
 private int score;
@@ -69,7 +73,7 @@ private boolean isSmall;
 	@Override
 	public void keyReleased(KeyEvent e) 
 	{}
-	public void getEggColor()
+	public void getEggProperty()
 	{
 		
 	}

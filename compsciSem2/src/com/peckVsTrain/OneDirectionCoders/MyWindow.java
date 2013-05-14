@@ -35,6 +35,7 @@ public class MyWindow extends JComponent
 		DEFAULT_WIDTH = 1280;
 		DEFAULT_HEIGHT = 720;
 		initialize();
+		InvisibleGrid myGrid = new InvisibleGrid(size);
 	}
 	public void initialize()
 	{
@@ -58,11 +59,13 @@ public class MyWindow extends JComponent
 		test.setVisible(true);
 	}
 	//Adds objects to the window//
-	public void add(String URLlocation)
+	public void addImages(JLabel[] images)
 	{
-		ImageIcon image = new ImageIcon(URLlocation);
-		JLabel label = new JLabel("", image, JLabel.CENTER);
-		contentArea.add( label, BorderLayout.CENTER );
+		for(int i = 0; i < images.length; i++)
+		{
+			contentArea.add(images[i], BorderLayout.CENTER);
+			
+		}
     }
 
 	}

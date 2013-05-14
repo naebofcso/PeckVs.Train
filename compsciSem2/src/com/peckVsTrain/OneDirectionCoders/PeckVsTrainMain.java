@@ -1,16 +1,34 @@
 package com.peckVsTrain.OneDirectionCoders;
 
+import java.awt.BorderLayout;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 public class PeckVsTrainMain 
 {
 	private String[] myURLs; //holds all of the file URLs in order to load all of the images easily//
+	private JLabel[] myImages;
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) 
 	{
 		MyWindow mainWindow = new MyWindow();
-		mainWindow.add("/Users/computerscience/Dropbox/CompSci sem 2 Workspace/images.jpeg");
+		loadImages(myURLs);
+		mainWindow.addImages(myImages);
 	}
 	
+	public JLabel[] loadImages(String[] URLs)
+	{
+		myImages = new JLabel[URLs.length];
+		for(int i = 0; i < URLs.length; i++)
+		{
+			ImageIcon image = new ImageIcon(URLs[i]);
+			JLabel label = new JLabel("", image, JLabel.CENTER);
+			myImages[i] = label;
+		}
+		return myImages;
+	}
 
 }

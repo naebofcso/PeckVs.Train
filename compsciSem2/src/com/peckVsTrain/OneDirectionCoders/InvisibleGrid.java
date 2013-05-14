@@ -10,18 +10,17 @@ public class InvisibleGrid
 	private Dimension screenSize;
 	private int [] [] gridLocations;
 	
+	public InvisibleGrid(Dimension Size)
+	{
+		gridLocations = new int [Size.height/80] [Size.width/80];
+		gridLocations = initializeGrid(gridLocations);
+	}
 	public InvisibleGrid()
 	{
-		
-	}
-	public InvisibleGrid(Dimension screenDim)
-	{
-		screenSize = screenDim;
-		//Modify so that it creates the right number of grid spaces//
-		gridLocations = new int [screenSize.width/80] [screenSize.height/80];
+		//default constructor//
 	}
 	
-	public int [] [] intializeGrid(int [] [] myGrid)
+	public int [] [] initializeGrid(int [] [] myGrid)
 	{
 		//add the correct pixel values for each square of the grid//
 		return myGrid;
