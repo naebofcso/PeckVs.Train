@@ -23,6 +23,8 @@ public class MyWindow extends JComponent
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private final int DEFAULT_WIDTH;
+	private final int DEFAULT_HEIGHT;
 	private JFrame frame;
 	private Dimension size;
 	private JPanel contentArea;
@@ -30,6 +32,8 @@ public class MyWindow extends JComponent
 	public MyWindow()
 	{
 		super();
+		DEFAULT_WIDTH = 1280;
+		DEFAULT_HEIGHT = 720;
 		initialize();
 	}
 	public void initialize()
