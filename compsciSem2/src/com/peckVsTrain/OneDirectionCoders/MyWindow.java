@@ -1,5 +1,6 @@
 package com.peckVsTrain.OneDirectionCoders;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -9,8 +10,10 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class MyWindow extends JComponent 
@@ -43,7 +46,7 @@ public class MyWindow extends JComponent
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setLocation(0, 0);
-		frame.setVisible(true);
+		frame.setVisible(false);
 	}
 	public static void main(String [] args)
 	{
@@ -53,18 +56,9 @@ public class MyWindow extends JComponent
 	//Adds objects to the window//
 	public void add(String URLlocation)
 	{
-		BufferedImage image = null;
-		try 
-		  {                
-	          image = ImageIO.read(new File(URLlocation));
-	       } catch (IOException ex) {
-	            // handle exception...
-	       }
-		paintComponent(null, image);
-	    }
-	protected void paintComponent(Graphics g, BufferedImage image) {
-        super.paintComponent(g);
-        g.drawImage(image, 0, 0, null); // see javadoc for more info on the parameters            
+		ImageIcon image = new ImageIcon(URLlocation);
+		JLabel label = new JLabel("", image, JLabel.CENTER);
+		contentArea.add( label, BorderLayout.CENTER );
     }
 
 	}
