@@ -1,5 +1,8 @@
 package com.peckVsTrain.OneDirectionCoders;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 public class Train 
 {
 	private String color;
@@ -8,5 +11,7 @@ public class Train
 	{
 		color = inputColor;
 		speed = initialSpeed;
+		ImageIcon trainImage = new ImageIcon("image url here");
+		JLabel trainLabel = new JLabel("", trainImage, JLabel.CENTER);
 	}
 }

@@ -3,7 +3,10 @@ package com.peckVsTrain.OneDirectionCoders;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 
  
 public class Chicken extends JComponent implements KeyListener
@@ -12,8 +15,6 @@ public class Chicken extends JComponent implements KeyListener
 	 * 
 	 */
 private static final long serialVersionUID = 1L;
-private int row;
-private int col;
 private int score;
 private final int MULTIPLIER;
 private final int MAX_LIVES;
@@ -30,8 +31,7 @@ private boolean isSmall;
 	 */
 	public static void main(String[] args) 
 	{
-		 
-
+		 Chicken myChick = new Chicken(); 
 	}
 	
 	public Chicken()
@@ -43,6 +43,8 @@ private boolean isSmall;
 		invincible = false;
 		multiplierFifteen = false;
 		isSmall = false;
+		ImageIcon chickImage = new ImageIcon("image url here");
+		JLabel chickLabel = new JLabel("", chickImage, JLabel.CENTER);
 	}
 
 	@Override
@@ -54,19 +56,19 @@ private boolean isSmall;
 	{
 		if(e.getKeyCode() == KeyEvent.VK_UP)
 		{
-			
+			System.out.println("up");
 		}
 		if(e.getKeyCode() == KeyEvent.VK_DOWN)
 		{
-			
+			System.out.println("down");
 		}
 		if(e.getKeyCode() == KeyEvent.VK_LEFT)
 		{
-			
+			System.out.println("left");
 		}
 		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
 		{
-			
+			System.out.println("right");
 		}
 	}
 
@@ -77,5 +79,14 @@ private boolean isSmall;
 	{
 		
 	}
+	public int getRow()
+	{
+		return getLocation().x;
+	}
+	public int getCol()
+	{
+		return getLocation().y;
+	}
+	
 }
 

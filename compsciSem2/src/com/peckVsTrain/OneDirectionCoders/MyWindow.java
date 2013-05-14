@@ -28,6 +28,8 @@ public class MyWindow extends JComponent
 	private JFrame frame;
 	private Dimension size;
 	private JPanel contentArea;
+	private int[] xCoords; //x coordinates for images that need to be pre-loaded onto the screen//
+	private int[] yCoords;//y coordinates for images that need to be pre-loaded onto the screen//
 	
 	public MyWindow()
 	{
@@ -40,7 +42,7 @@ public class MyWindow extends JComponent
 	public void initialize()
 	{
 		frame = new JFrame();
-		size = new Dimension(1280, 720);
+		size = new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		frame.setPreferredSize(size);
 		frame.setTitle("Peck Vs. Train");
 		contentArea = new JPanel();
@@ -64,9 +66,13 @@ public class MyWindow extends JComponent
 		for(int i = 0; i < images.length; i++)
 		{
 			contentArea.add(images[i], BorderLayout.CENTER);
-			
+			images[i].setLocation(xCoords[i], yCoords[i]);
 		}
     }
-
+	
+	 public void setVisible(boolean isVisible)
+	 {
+		 frame.setVisible(isVisible);
+	 }
 	}
 
