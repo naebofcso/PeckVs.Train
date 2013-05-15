@@ -15,7 +15,7 @@ public class PeckVsTrainMain
 	public static void main(String[] args) 
 	{
 		MyWindow mainWindow = new MyWindow();
-		//loadImages(myURLs);
+		//loadImages(myURLs); // I don't think we need "load images" and "addImages" because these images are supposed to be already set up by the Window and Chicken classes. 
 		//mainWindow.addImages(myImages);
 		//Chicken myChick = new Chicken();
 		//mainWindow.add(myChick);
