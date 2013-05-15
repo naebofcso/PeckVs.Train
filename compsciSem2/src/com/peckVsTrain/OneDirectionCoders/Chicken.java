@@ -22,7 +22,9 @@ private int numLives;
 private boolean invincible;
 private boolean multiplierFifteen;
 private boolean isSmall;
-
+private JLabel chickLabel;
+private int row;
+private int col;
 
 //Needs instance variables for its various states using booleans to modify//
 //its behavior//
@@ -43,8 +45,8 @@ private boolean isSmall;
 		invincible = false;
 		multiplierFifteen = false;
 		isSmall = false;
-		ImageIcon chickImage = new ImageIcon("image url here");
-		JLabel chickLabel = new JLabel("", chickImage, JLabel.CENTER);
+		ImageIcon chickImage = new ImageIcon("");
+		chickLabel = new JLabel("", chickImage, JLabel.CENTER);
 	}
 
 	@Override
@@ -71,7 +73,7 @@ private boolean isSmall;
 			System.out.println("right");
 		}
 	}
-
+	
 	@Override
 	public void keyReleased(KeyEvent e) 
 	{}
@@ -87,6 +89,15 @@ private boolean isSmall;
 	{
 		return getLocation().y;
 	}
-	
+	public JLabel getImage()
+	{
+		return chickLabel;
+	}
+	public void setLocation(int x, int y)
+	{
+		chickLabel.setLocation(x, y);
+		row = x;
+		col = y;
+	}
 }
 
