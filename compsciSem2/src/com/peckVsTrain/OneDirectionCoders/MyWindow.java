@@ -25,8 +25,9 @@ public class MyWindow extends JComponent
 	private static final long serialVersionUID = 1L;
 	private final int DEFAULT_WIDTH;
 	private final int DEFAULT_HEIGHT;
+	private final double SCALING_FACTOR;
 	private JFrame frame;
-	private Dimension size;
+	private final Dimension DEFAULT_SIZE;
 	private JPanel contentArea;
 	private int[] xCoords; //x coordinates for images that need to be pre-loaded onto the screen//
 	private int[] yCoords;//y coordinates for images that need to be pre-loaded onto the screen//
@@ -36,14 +37,23 @@ public class MyWindow extends JComponent
 		super();
 		DEFAULT_WIDTH = 1280;
 		DEFAULT_HEIGHT = 720;
+		DEFAULT_SIZE = new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		SCALING_FACTOR = 0.8;
 		initialize();
-		InvisibleGrid myGrid = new InvisibleGrid(size);
+		InvisibleGrid myGrid = new InvisibleGrid();
 	}
 	public void initialize()
 	{
 		frame = new JFrame();
-		size = new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT);
-		frame.setPreferredSize(size);
+		if(compareDim(PeckUtils.getScreenSize(), DEFAULT_SIZE) <=0)
+		{
+			Dimension modSize = new Dimension((int) (DEFAULT_WIDTH *SCALING_FACTOR), (int) (DEFAULT_HEIGHT *SCALING_FACTOR));
+			frame.setPreferredSize(modSize);
+		}
+		else
+		{
+			frame.setPreferredSize(DEFAULT_SIZE);
+		}
 		frame.setTitle("Peck Vs. Train");
 		contentArea = new JPanel();
 		contentArea.setBackground(Color.white);
@@ -73,6 +83,34 @@ public class MyWindow extends JComponent
 	 public void setVisible(boolean isVisible)
 	 {
 		 frame.setVisible(isVisible);
+	 }
+	 
+	 public double getScalingFactor()
+	 {
+		 return SCALING_FACTOR;
+	 }
+	 public int getDefaultWidth()
+	 {
+		 return DEFAULT_WIDTH;
+	 }
+	 public int getDefaultHeight()
+	 {
+		 return DEFAULT_HEIGHT;
+	 }
+	 public int compareDim(Dimension dim1, Dimension dim2)
+	 {
+		 if(dim1.height < dim2.height || dim1.width < dim2.width)
+		 {
+			 return -1;
+		 }
+		 if(dim1.height > dim2.height || dim1.width < dim2.width)
+		 {
+			 return 1;
+		 }
+		 else
+		 {
+			 return 0;
+		 }
 	 }
 	}
 
