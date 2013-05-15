@@ -10,6 +10,7 @@ public class PeckVsTrainMain
 	private static String[] myURLs; //holds all of the file URLs in order to load all of the images easily//
 	private static JLabel[] myImages;
 	private static Egg[] eggsList;
+	private static Train[] trainsList;
 	/**
 	 * @param args
 	 */
@@ -19,6 +20,7 @@ public class PeckVsTrainMain
 		loadImages(myURLs); 
 		mainWindow.addImages(myImages);
 		initializeEggs();
+		initializeTrains();
 		Chicken myChick = new Chicken();
 		mainWindow.add(myChick.getImage());
 		myChick.getImage().setLocation(0,0);
@@ -57,6 +59,14 @@ public class PeckVsTrainMain
 			{
 				eggsList[i] = new Egg("Gold", "Life");
 			}
+		}
+	}
+	public static void initializeTrains()
+	{
+		trainsList = new Train[10];
+		for(int i = 0; i < trainsList.length; i++)
+		{
+			trainsList[i] = new Train(1);
 		}
 	}
 

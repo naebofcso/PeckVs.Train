@@ -70,9 +70,17 @@ public class MyWindow extends JComponent
 		MyWindow test = new MyWindow();
 		test.setVisible(true);
 	}
-	public void add(JLabel myLabel)
+	public void add(Chicken chicken)
 	{
-		super.add(myLabel);
+		super.add(chicken.getImage());
+	}
+	public void add(Train train)
+	{
+		super.add(train.getImage());
+	}
+	public void add(Egg egg)
+	{
+		super.add(egg.getImage());
 	}
 	//Adds objects to the window//
 	public void addImages(JLabel[] images)

@@ -6,13 +6,21 @@ import javax.swing.JLabel;
 
 public class Train extends JComponent
 {
-	private String color;
 	private int speed;
-	public Train(String inputColor, int initialSpeed)
+	private String[] trainURLs = new String[] {"","",""};
+	private JLabel trainLabel;
+	public Train(int initialSpeed)
 	{
-		color = inputColor;
 		speed = initialSpeed;
-		ImageIcon trainImage = new ImageIcon("image url here");
-		JLabel trainLabel = new JLabel("", trainImage, JLabel.CENTER);
+		ImageIcon trainImage = new ImageIcon(trainURLs[(int) (Math.random()*trainURLs.length)]);
+		trainLabel = new JLabel("", trainImage, JLabel.CENTER);
+	}
+	public void incrementSpeed()
+	{
+		speed++;
+	}
+	public JLabel getImage()
+	{
+		return trainLabel;
 	}
 }
