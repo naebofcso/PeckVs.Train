@@ -1,9 +1,10 @@
 package com.peckVsTrain.OneDirectionCoders;
 
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 
-public class Train 
+public class Train extends JComponent
 {
 	private String color;
 	private int speed;

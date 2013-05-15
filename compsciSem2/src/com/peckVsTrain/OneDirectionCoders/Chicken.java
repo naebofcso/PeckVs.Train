@@ -22,7 +22,9 @@ private int numLives;
 private boolean invincible;
 private boolean multiplierFifteen;
 private boolean isSmall;
-private JLabel chickLabel;
+private JLabel currentChickLabel;
+private JLabel[] chickLabels;
+private String[] chickURLs;
 private int row;
 private int col;
 
@@ -45,8 +47,18 @@ private int col;
 		invincible = false;
 		multiplierFifteen = false;
 		isSmall = false;
-		ImageIcon chickImage = new ImageIcon("");
-		chickLabel = new JLabel("", chickImage, JLabel.CENTER);
+		chickURLs = new String[] {"", "", "", ""};
+		initializeLabels();
+		currentChickLabel = chickLabels[0];
+	}
+	public void initializeLabels()
+	{
+		chickLabels = new JLabel[4];
+		for(int i = 0; i < chickLabels.length; i++)
+		{
+			ImageIcon chickImage = new ImageIcon(chickURLs[i]);
+			chickLabels[i] = new JLabel("", chickImage, JLabel.CENTER);
+		}
 	}
 
 	@Override
@@ -56,21 +68,29 @@ private int col;
 	@Override
 	public void keyPressed(KeyEvent e) 
 	{
-		if(e.getKeyCode() == KeyEvent.VK_UP)
+		if(e.getKeyCode() == KeyEvent.VK_UP && row > 0)
 		{
-			System.out.println("up");
+			currentChickLabel = chickLabels[0];
+			setLocation(col, row+1);
+			row = row +1;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_DOWN)
+		if(e.getKeyCode() == KeyEvent.VK_DOWN && row < 720)
 		{
-			System.out.println("down");
+			currentChickLabel = chickLabels[1];
+			setLocation(col, row-1);
+			row = row -1;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_LEFT)
+		if(e.getKeyCode() == KeyEvent.VK_LEFT && col > 0)
 		{
-			System.out.println("left");
+			currentChickLabel = chickLabels[2];
+			setLocation(col-1, row);
+			col = col -1;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT && col < 1280)
 		{
-			System.out.println("right");
+			currentChickLabel = chickLabels[3];
+			setLocation(col+1, row);
+			col = col + 1;
 		}
 	}
 	
@@ -91,13 +111,13 @@ private int col;
 	}
 	public JLabel getImage()
 	{
-		return chickLabel;
+		return currentChickLabel;
 	}
 	public void setLocation(int x, int y)
 	{
-		chickLabel.setLocation(x, y);
-		row = x;
-		col = y;
+		currentChickLabel.setLocation(x, y);
+		row = y;
+		col = x;
 	}
+	
 }
-
