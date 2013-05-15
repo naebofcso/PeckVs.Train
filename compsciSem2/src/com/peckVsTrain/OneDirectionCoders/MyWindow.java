@@ -42,12 +42,26 @@ public class MyWindow extends JComponent
 		initialize();
 		InvisibleGrid myGrid = new InvisibleGrid();
 	}
+	
+	/*------------------------------------------------------------------------------
+
+	@name       initialize - initializes the window elements
+	                                                                              */
+	                                                                             /**
+	            Initializes window elements
+
+	@return     null
+
+	@param      null     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public void initialize()
 	{
 		frame = new JFrame();
 		if(compareDim(PeckUtils.getScreenSize(), DEFAULT_SIZE) <=0)
 		{
-			Dimension modSize = new Dimension((int) (DEFAULT_WIDTH *SCALING_FACTOR), (int) (DEFAULT_HEIGHT *SCALING_FACTOR));
+			Dimension modSize = new Dimension(
+			(int) (DEFAULT_WIDTH *SCALING_FACTOR), (int) (DEFAULT_HEIGHT *SCALING_FACTOR));
 			frame.setPreferredSize(modSize);
 		}
 		else
@@ -65,24 +79,85 @@ public class MyWindow extends JComponent
 		frame.setLocation(0, 0);
 		frame.setVisible(false);
 	}
+	
+	/*------------------------------------------------------------------------------
+
+	@name       main - main method
+	                                                                              */
+	                                                                             /**
+	            main
+
+	@return     null
+
+	@param      null     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public static void main(String [] args)
-	{
-		MyWindow test = new MyWindow();
-		test.setVisible(true);
-	}
+	{}
+	
+	/*------------------------------------------------------------------------------
+
+	@name       add - adds specfic component
+	                                                                              */
+	                                                                             /**
+	            adds component to window
+
+	@return     null
+
+	@param      Chicken object     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public void add(Chicken chicken)
 	{
 		super.add(chicken.getImage());
 	}
+	
+	/*------------------------------------------------------------------------------
+
+	@name       add - adds specfic component
+	                                                                              */
+	                                                                             /**
+	            adds component to window
+
+	@return     null
+
+	@param      Train object     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public void add(Train train)
 	{
 		super.add(train.getImage());
 	}
+	
+	/*------------------------------------------------------------------------------
+
+	@name       add - adds specfic component
+	                                                                              */
+	                                                                             /**
+	            adds component to window
+
+	@return     null
+
+	@param      Egg object     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public void add(Egg egg)
 	{
 		super.add(egg.getImage());
 	}
-	//Adds objects to the window//
+	
+	/*------------------------------------------------------------------------------
+
+	@name       addImages - adds background images
+	                                                                              */
+	                                                                             /**
+	            adds background images
+
+	@return     null
+
+	@param      Array of different JLabel images     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public void addImages(JLabel[] images)
 	{
 		for(int i = 0; i < images.length; i++)
@@ -92,23 +167,85 @@ public class MyWindow extends JComponent
 		}
     }
 	
+	/*------------------------------------------------------------------------------
+
+	@name       setVisible - makes window visible
+	                                                                              */
+	                                                                             /**
+	            makes window visible
+
+	@return     null
+
+	@param      Boolean that is true or false 
+	                                                                              */
+	//------------------------------------------------------------------------------
 	 public void setVisible(boolean isVisible)
 	 {
 		 frame.setVisible(isVisible);
 	 }
 	 
+	 /*------------------------------------------------------------------------------
+
+		@name       getScalingFactor - returns scaling factor
+		                                                                              */
+		                                                                             /**
+		            returns scaling factor
+
+		@return     double of the scaling factor
+
+		@param      null     
+		                                                                              */
+		//------------------------------------------------------------------------------
 	 public double getScalingFactor()
 	 {
 		 return SCALING_FACTOR;
 	 }
+	 /*------------------------------------------------------------------------------
+
+		@name       getDefaultWidth - returns default width
+		                                                                              */
+		                                                                             /**
+		            returns default width
+
+		@return     returns an int of the default width
+
+		@param      null    
+		                                                                              */
+		//------------------------------------------------------------------------------
 	 public int getDefaultWidth()
 	 {
 		 return DEFAULT_WIDTH;
 	 }
+	 /*------------------------------------------------------------------------------
+
+		@name       getDefaultHeight - returns default height
+		                                                                              */
+		                                                                             /**
+		            returns default height
+
+		@return     int of the default height
+
+		@param      null     
+		                                                                              */
+		//------------------------------------------------------------------------------
 	 public int getDefaultHeight()
 	 {
 		 return DEFAULT_HEIGHT;
 	 }
+	 
+	 /*------------------------------------------------------------------------------
+
+		@name       compareDim - compares two input dimensions
+		                                                                              */
+		                                                                             /**
+		            compares two dimensions by looking at their x and y sizes
+
+		@return     1 if the first is bigger, 0 if they are the same, -1 if the first is
+					smaller.
+
+		@param      Two valid dimensions dim1 and dim2     
+		                                                                              */
+		//------------------------------------------------------------------------------
 	 public int compareDim(Dimension dim1, Dimension dim2)
 	 {
 		 if(dim1.height < dim2.height || dim1.width < dim2.width)
@@ -124,5 +261,6 @@ public class MyWindow extends JComponent
 			 return 0;
 		 }
 	 }
+	 //----------------------------------------end class-------------------------------------//
 	}
 

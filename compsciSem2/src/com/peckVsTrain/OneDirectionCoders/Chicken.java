@@ -51,6 +51,21 @@ private int col;
 		initializeLabels();
 		currentChickLabel = chickLabels[0];
 	}
+	
+
+	/*------------------------------------------------------------------------------
+
+	@name       initializeLabels - initializes the chicken labels
+	                                                                              */
+	                                                                             /**
+	            Fills an array of type JLabel with the up, down, left, and right 
+	            JLabel images of the chicken.
+
+	@return     null
+
+	@param      null     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public void initializeLabels()
 	{
 		chickLabels = new JLabel[4];
@@ -66,6 +81,18 @@ private int col;
 	{}
 
 	@Override
+	/*------------------------------------------------------------------------------
+
+	@name       keyPressed - key pressed
+	                                                                              */
+	                                                                             /**
+	            Handles what the chicken should do when one of the arrow keys is pressed.
+
+	@return     null
+
+	@param      null     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public void keyPressed(KeyEvent e) 
 	{
 		if(e.getKeyCode() == KeyEvent.VK_UP && row > 0)
@@ -101,18 +128,74 @@ private int col;
 	{
 		
 	}
+	
+
+	/*------------------------------------------------------------------------------
+
+	@name       getRow - get row
+	                                                                              */
+	                                                                             /**
+	            returns the row that the egg is in.
+
+	@return     int of the row that the egg is in.
+
+	@param      null     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public int getRow()
 	{
 		return getLocation().x;
 	}
+	
+
+	/*------------------------------------------------------------------------------
+
+	@name       getCol - get col
+	                                                                              */
+	                                                                             /**
+	            returns the col that the egg is in.
+
+	@return     int of the col that the egg is in.
+
+	@param      null     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public int getCol()
 	{
 		return getLocation().y;
 	}
+	
+
+	/*------------------------------------------------------------------------------
+
+	@name       getImage - get image
+	                                                                              */
+	                                                                             /**
+	            returns the JLabel image that the chicken is associated with.
+
+	@return     JLabel of the image the chicken is associated with.
+
+	@param      null     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public JLabel getImage()
 	{
 		return currentChickLabel;
 	}
+	
+
+	/*------------------------------------------------------------------------------
+
+	@name       setLocation - set location
+	                                                                              */
+	                                                                             /**
+	            sets the location of the image of the chicken on the window.
+
+	@return     null
+
+	@param      null     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public void setLocation(int x, int y)
 	{
 		currentChickLabel.setLocation(x, y);

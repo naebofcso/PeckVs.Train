@@ -15,10 +15,38 @@ public class Train extends JComponent
 		ImageIcon trainImage = new ImageIcon(trainURLs[(int) (Math.random()*trainURLs.length)]);
 		trainLabel = new JLabel("", trainImage, JLabel.CENTER);
 	}
+	
+
+	/*------------------------------------------------------------------------------
+
+	@name       incrementSpeed - increments speed 
+	                                                                              */
+	                                                                             /**
+	            increases the speed of the individual train
+
+	@return     null
+
+	@param      null     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public void incrementSpeed()
 	{
 		speed++;
 	}
+	
+
+	/*------------------------------------------------------------------------------
+
+	@name       getImage - get image
+	                                                                              */
+	                                                                             /**
+	            returns the image associated with the train
+
+	@return     JLabel image associated with the instance of the train.
+
+	@param      null     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public JLabel getImage()
 	{
 		return trainLabel;

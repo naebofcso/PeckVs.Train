@@ -14,6 +14,18 @@ public class PeckVsTrainMain
 	/**
 	 * @param args
 	 */
+	/*------------------------------------------------------------------------------
+
+	@name       main - main method
+	                                                                              */
+	                                                                             /**
+	            sets everything up and runs it
+
+	@return     null
+
+	@param      null     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public static void main(String[] args) 
 	{
 		MyWindow mainWindow = new MyWindow();
@@ -27,6 +39,18 @@ public class PeckVsTrainMain
 		mainWindow.setVisible(true);
 	}
 	
+	/*------------------------------------------------------------------------------
+
+	@name       loadImages - loads the JLabel images
+	                                                                              */
+	                                                                             /**
+	            Loads the image as JLabels from their respective filepaths
+
+	@return     A full JLabel array that has all of the background images in it.
+
+	@param      String array full of the filepaths for the images     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public static JLabel[] loadImages(String[] URLs)
 	{
 		myImages = new JLabel[URLs.length];
@@ -38,6 +62,19 @@ public class PeckVsTrainMain
 		}
 		return myImages;
 	}
+	
+	/*------------------------------------------------------------------------------
+
+	@name       initializeEggs- initializes the eggs into an array
+	                                                                              */
+	                                                                             /**
+	            creates an array of Egg objects that can be accessed later on.
+
+	@return     null
+
+	@param      null     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public static void initializeEggs()
 	{
 		eggsList = new Egg[20];
@@ -61,6 +98,19 @@ public class PeckVsTrainMain
 			}
 		}
 	}
+	
+	/*------------------------------------------------------------------------------
+
+	@name       initializeTrains - initializes an array of train objects
+	                                                                              */
+	                                                                             /**
+	            fills an array of Train with Train objects that can be accessed later.
+
+	@return     null
+
+	@param      null     
+	                                                                              */
+	//------------------------------------------------------------------------------
 	public static void initializeTrains()
 	{
 		trainsList = new Train[10];
