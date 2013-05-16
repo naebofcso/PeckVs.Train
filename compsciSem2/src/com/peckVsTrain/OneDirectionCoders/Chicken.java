@@ -27,29 +27,30 @@ private JLabel[] chickLabels;
 private String[] chickURLs;
 private int row;
 private int col;
-
+private PeckVsTrainMain main;
 //Needs instance variables for its various states using booleans to modify//
 //its behavior//
 /**
 	 * @param args
 	 */
-	public static void main(String[] args) 
-	{
-		 Chicken myChick = new Chicken(); 
-	}
 	
-	public Chicken()
+	public Chicken(int x, int y, PeckVsTrainMain myApp)
 	{
 		addKeyListener(this);
+		main = myApp;
+		col = x;
+		row = y;
 		MAX_LIVES = 5;
 		MULTIPLIER = 15;
 		numLives = 3;
 		invincible = false;
 		multiplierFifteen = false;
 		isSmall = false;
-		chickURLs = new String[] {"", "", "", ""};
+		chickURLs = new String[] {"Resources/chickenup.jpeg", "Resources/chickendown.jpeg", 
+								  "Resources/chickenleft.jpeg", "Resources/chickenright.jpeg"};
 		initializeLabels();
 		currentChickLabel = chickLabels[0];
+		setLocation(col, row);
 	}
 	
 
@@ -97,9 +98,11 @@ private int col;
 	{
 		if(e.getKeyCode() == KeyEvent.VK_UP && row > 0)
 		{
+			main.remove(currentChickLabel);
 			currentChickLabel = chickLabels[0];
 			setLocation(col, row+1);
 			row = row +1;
+			System.out.println("up");
 		}
 		if(e.getKeyCode() == KeyEvent.VK_DOWN && row < 720)
 		{

@@ -109,7 +109,7 @@ public class MyWindow extends JComponent
 	//------------------------------------------------------------------------------
 	public void add(Chicken chicken)
 	{
-		super.add(chicken.getImage());
+		contentArea.add(chicken.getImage());
 	}
 	
 	/*------------------------------------------------------------------------------
@@ -126,7 +126,7 @@ public class MyWindow extends JComponent
 	//------------------------------------------------------------------------------
 	public void add(Train train)
 	{
-		super.add(train.getImage());
+		contentArea.add(train.getImage());
 	}
 	
 	/*------------------------------------------------------------------------------
@@ -143,7 +143,7 @@ public class MyWindow extends JComponent
 	//------------------------------------------------------------------------------
 	public void add(Egg egg)
 	{
-		super.add(egg.getImage());
+		contentArea.add(egg.getImage());
 	}
 	
 	/*------------------------------------------------------------------------------

@@ -11,6 +11,7 @@ public class PeckVsTrainMain
 	private static JLabel[] myImages;
 	private static Egg[] eggsList;
 	private static Train[] trainsList;
+	private static MyWindow mainWindow;
 	/**
 	 * @param args
 	 */
@@ -28,14 +29,13 @@ public class PeckVsTrainMain
 	//------------------------------------------------------------------------------
 	public static void main(String[] args) 
 	{
-		MyWindow mainWindow = new MyWindow();
-		loadImages(myURLs); 
-		mainWindow.addImages(myImages);
-		initializeEggs();
-		initializeTrains();
-		Chicken myChick = new Chicken();
-		mainWindow.add(myChick.getImage());
-		myChick.getImage().setLocation(0,0);
+		mainWindow = new MyWindow();
+		//loadImages(myURLs); 
+		//mainWindow.addImages(myImages);
+		//initializeEggs();
+		//initializeTrains();
+		Chicken myChick = new Chicken(50, 50, this);
+		mainWindow.add(myChick);
 		mainWindow.setVisible(true);
 	}
 	
@@ -119,5 +119,8 @@ public class PeckVsTrainMain
 			trainsList[i] = new Train(1);
 		}
 	}
-
+	public MyWindow getWindow()
+	{
+		return mainWindow;
+	}
 }

@@ -51,4 +51,22 @@ public class Train extends JComponent
 	{
 		return trainLabel;
 	}
+	
+
+	/*------------------------------------------------------------------------------
+
+	@name       getSpeed - get speed
+	                                                                              */
+	                                                                             /**
+	            returns the int value of the train's speed.
+
+	@return     int that represents the train's speed.
+
+	@param      null     
+	                                                                              */
+	//------------------------------------------------------------------------------
+	public int getSpeed()
+	{
+		return speed;
+	}
 }
