@@ -27,17 +27,17 @@ private JLabel[] chickLabels;
 private String[] chickURLs;
 private int row;
 private int col;
-private PeckVsTrainMain main;
+private MyWindow mainWindow;
 //Needs instance variables for its various states using booleans to modify//
 //its behavior//
 /**
 	 * @param args
 	 */
 	
-	public Chicken(int x, int y, PeckVsTrainMain myApp)
+	public Chicken(int x, int y, MyWindow window)
 	{
 		addKeyListener(this);
-		main = myApp;
+		mainWindow = window;
 		col = x;
 		row = y;
 		MAX_LIVES = 5;
@@ -98,28 +98,34 @@ private PeckVsTrainMain main;
 	{
 		if(e.getKeyCode() == KeyEvent.VK_UP && row > 0)
 		{
-			main.remove(currentChickLabel);
+			mainWindow.remove(currentChickLabel);
 			currentChickLabel = chickLabels[0];
 			setLocation(col, row+1);
+			mainWindow.add(currentChickLabel);
 			row = row +1;
-			System.out.println("up");
 		}
 		if(e.getKeyCode() == KeyEvent.VK_DOWN && row < 720)
 		{
+			mainWindow.remove(currentChickLabel);
 			currentChickLabel = chickLabels[1];
 			setLocation(col, row-1);
+			mainWindow.add(currentChickLabel);
 			row = row -1;
 		}
 		if(e.getKeyCode() == KeyEvent.VK_LEFT && col > 0)
 		{
+			mainWindow.remove(currentChickLabel);
 			currentChickLabel = chickLabels[2];
 			setLocation(col-1, row);
+			mainWindow.add(currentChickLabel);
 			col = col -1;
 		}
 		if(e.getKeyCode() == KeyEvent.VK_RIGHT && col < 1280)
 		{
+			mainWindow.remove(currentChickLabel);
 			currentChickLabel = chickLabels[3];
 			setLocation(col+1, row);
+			mainWindow.add(currentChickLabel);
 			col = col + 1;
 		}
 	}

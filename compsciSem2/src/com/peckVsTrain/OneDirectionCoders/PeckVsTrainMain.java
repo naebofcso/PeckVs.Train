@@ -34,7 +34,7 @@ public class PeckVsTrainMain
 		//mainWindow.addImages(myImages);
 		//initializeEggs();
 		//initializeTrains();
-		Chicken myChick = new Chicken(50, 50, this);
+		Chicken myChick = new Chicken(50, 50, mainWindow);
 		mainWindow.add(myChick);
 		mainWindow.setVisible(true);
 	}
