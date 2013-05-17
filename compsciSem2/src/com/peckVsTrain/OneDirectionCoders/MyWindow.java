@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MyWindow extends JComponent 
+public class MyWindow extends JComponent implements KeyListener
 {
 
 	/**
@@ -71,6 +73,7 @@ public class MyWindow extends JComponent
 		}
 		frame.setTitle("Peck Vs. Train");
 		contentArea = new JPanel();
+		frame.addKeyListener(this);
 		contentArea.setBackground(Color.white);
 		contentArea.setName(frame.getRootPane().getName() + ".contentArea");
 		contentArea.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -78,7 +81,7 @@ public class MyWindow extends JComponent
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setLocation(0, 0);
-		frame.setVisible(false);
+		frame.setVisible(true);
 	}
 	
 	/*------------------------------------------------------------------------------
@@ -94,7 +97,9 @@ public class MyWindow extends JComponent
 	                                                                              */
 	//------------------------------------------------------------------------------
 	public static void main(String [] args)
-	{}
+	{
+		MyWindow test = new MyWindow();
+	}
 	
 	/*------------------------------------------------------------------------------
 
@@ -262,6 +267,48 @@ public class MyWindow extends JComponent
 			 return 0;
 		 }
 	 }
-	 //----------------------------------------end class-------------------------------------//
+
+	@Override
+	public void keyTyped(KeyEvent e) 
+	{}
+	
+	/*------------------------------------------------------------------------------
+
+	@name       keyPressed - key pressed
+	                                                                              */
+	                                                                             /**
+	            Handles what the chicken should do when one of the arrow keys is pressed.
+
+	@return     null
+
+	@param      null     
+	                                                                              */
+	//------------------------------------------------------------------------------
+	@Override
+	public void keyPressed(KeyEvent e) 
+	{
+		
+		if(e.getKeyCode() == KeyEvent.VK_UP)
+		{
+			System.out.println("up");
+		}
+		if(e.getKeyCode() == KeyEvent.VK_DOWN)
+		{
+			System.out.println("down");
+		}
+		if(e.getKeyCode() == KeyEvent.VK_LEFT)
+		{
+			System.out.println("left");
+		}
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+		{
+			System.out.println("right");
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) 
+	{}
+
 	}
 

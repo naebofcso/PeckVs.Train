@@ -1,13 +1,10 @@
 package com.peckVsTrain.OneDirectionCoders;
 
 import java.awt.BorderLayout;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class PeckVsTrainMain implements KeyListener
+public class PeckVsTrainMain 
 
 {
 	private static String[] myURLs; //holds all of the file URLs in order to load all of the images easily//
@@ -40,10 +37,7 @@ public class PeckVsTrainMain implements KeyListener
 		//initializeTrains();
 		Chicken myChick = new Chicken(50, 50);
 		mainWindow.add(myChick);
-		JLabel myLabel = new JLabel("Hello There!", JLabel.CENTER);
-		myLabel.setSize(100,100);
-		mainWindow.add(myLabel);
-		myLabel.setLocation(500, 500);
+		myChick.setLocation(500, 500);
 		mainWindow.setVisible(true);
 	}
 	
@@ -132,45 +126,7 @@ public class PeckVsTrainMain implements KeyListener
 		return mainWindow;
 	}
 	
-	@Override
-	public void keyTyped(KeyEvent e) 
-	{}
-
-	@Override
-	/*------------------------------------------------------------------------------
-
-	@name       keyPressed - key pressed
-	                                                                              */
-	                                                                             /**
-	            Handles what the chicken should do when one of the arrow keys is pressed.
-
-	@return     null
-
-	@param      null     
-	                                                                              */
-	//------------------------------------------------------------------------------
 	
-	public void keyPressed(KeyEvent e) 
-	{
-		if(e.getKeyCode() == KeyEvent.VK_UP)
-		{
-			System.out.println("up");
-		}
-		if(e.getKeyCode() == KeyEvent.VK_DOWN)
-		{
-			System.out.println("down");
-		}
-		if(e.getKeyCode() == KeyEvent.VK_LEFT)
-		{
-			System.out.println("left");
-		}
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-		{
-			System.out.println("right");
-		}
-	}
 	
-	@Override
-	public void keyReleased(KeyEvent e) 
-	{}
+	
 }
