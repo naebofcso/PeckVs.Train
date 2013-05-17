@@ -40,6 +40,7 @@ public class MyWindow extends JComponent
 		DEFAULT_SIZE = new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		SCALING_FACTOR = 0.8;
 		initialize();
+		setLayout(null);
 		InvisibleGrid myGrid = new InvisibleGrid();
 	}
 	

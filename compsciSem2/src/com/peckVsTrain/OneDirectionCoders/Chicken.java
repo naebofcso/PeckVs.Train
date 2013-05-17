@@ -1,6 +1,7 @@
 package com.peckVsTrain.OneDirectionCoders;
 
 
+import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -9,7 +10,7 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 
  
-public class Chicken extends JComponent implements KeyListener
+public class Chicken 
 {
 /**
 	 * 
@@ -27,17 +28,14 @@ private JLabel[] chickLabels;
 private String[] chickURLs;
 private int row;
 private int col;
-private MyWindow mainWindow;
 //Needs instance variables for its various states using booleans to modify//
 //its behavior//
 /**
 	 * @param args
 	 */
 	
-	public Chicken(int x, int y, MyWindow window)
+	public Chicken(int x, int y)
 	{
-		addKeyListener(this);
-		mainWindow = window;
 		col = x;
 		row = y;
 		MAX_LIVES = 5;
@@ -77,62 +75,7 @@ private MyWindow mainWindow;
 		}
 	}
 
-	@Override
-	public void keyTyped(KeyEvent e) 
-	{}
-
-	@Override
-	/*------------------------------------------------------------------------------
-
-	@name       keyPressed - key pressed
-	                                                                              */
-	                                                                             /**
-	            Handles what the chicken should do when one of the arrow keys is pressed.
-
-	@return     null
-
-	@param      null     
-	                                                                              */
-	//------------------------------------------------------------------------------
-	public void keyPressed(KeyEvent e) 
-	{
-		if(e.getKeyCode() == KeyEvent.VK_UP && row > 0)
-		{
-			mainWindow.remove(currentChickLabel);
-			currentChickLabel = chickLabels[0];
-			setLocation(col, row+1);
-			mainWindow.add(currentChickLabel);
-			row = row +1;
-		}
-		if(e.getKeyCode() == KeyEvent.VK_DOWN && row < 720)
-		{
-			mainWindow.remove(currentChickLabel);
-			currentChickLabel = chickLabels[1];
-			setLocation(col, row-1);
-			mainWindow.add(currentChickLabel);
-			row = row -1;
-		}
-		if(e.getKeyCode() == KeyEvent.VK_LEFT && col > 0)
-		{
-			mainWindow.remove(currentChickLabel);
-			currentChickLabel = chickLabels[2];
-			setLocation(col-1, row);
-			mainWindow.add(currentChickLabel);
-			col = col -1;
-		}
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT && col < 1280)
-		{
-			mainWindow.remove(currentChickLabel);
-			currentChickLabel = chickLabels[3];
-			setLocation(col+1, row);
-			mainWindow.add(currentChickLabel);
-			col = col + 1;
-		}
-	}
 	
-	@Override
-	public void keyReleased(KeyEvent e) 
-	{}
 	public void getEggProperty()
 	{
 		
@@ -212,4 +155,20 @@ private MyWindow mainWindow;
 		col = x;
 	}
 	
+	/*------------------------------------------------------------------------------
+
+	@name       getLocation - get location
+	                                                                              */
+	                                                                             /**
+	            gets the location of the image of the chicken on the window.
+
+	@return     point
+
+	@param      null     
+	                                                                              */
+	//------------------------------------------------------------------------------
+	public Point getLocation()
+	{
+		return currentChickLabel.getLocation();
+	}
 }
