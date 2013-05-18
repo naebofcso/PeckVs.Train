@@ -1,6 +1,7 @@
 package com.peckVsTrain.OneDirectionCoders;
 
 
+import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -10,7 +11,7 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 
  
-public class Chicken 
+public class Chicken implements KeyListener 
 {
 /**
 	 * 
@@ -72,6 +73,7 @@ private int col;
 		{
 			ImageIcon chickImage = new ImageIcon(chickURLs[i]);
 			chickLabels[i] = new JLabel("", chickImage, JLabel.CENTER);
+			chickLabels[i].setSize(chickImage.getIconWidth(), chickImage.getIconHeight());
 		}
 	}
 
@@ -170,5 +172,48 @@ private int col;
 	public Point getLocation()
 	{
 		return currentChickLabel.getLocation();
+	}
+
+
+	@Override
+	public void keyTyped(KeyEvent e) 
+	{
+		
+	}
+
+
+	@Override
+	public void keyPressed(KeyEvent e) 
+	{
+		if(e.getKeyCode() == KeyEvent.VK_UP)
+		{
+			setLocation(col, row - 10);
+			row = row - 10;
+		}
+		if(e.getKeyCode() == KeyEvent.VK_DOWN)
+		{
+			setLocation(col, row + 10);
+			row = row + 10;
+		}
+		if(e.getKeyCode() == KeyEvent.VK_LEFT)
+		{
+			setLocation(col - 10, row);
+			col = col - 10;
+		}
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+		{
+			setLocation(col + 10, row);
+			col = col + 10;
+		}
+	}
+
+
+	@Override
+	public void keyReleased(KeyEvent e) 
+	{}
+	
+	public Dimension getSize()
+	{
+		return currentChickLabel.getSize();
 	}
 }

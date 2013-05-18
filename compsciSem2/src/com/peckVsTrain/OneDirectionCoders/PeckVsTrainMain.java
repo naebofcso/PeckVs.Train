@@ -35,10 +35,12 @@ public class PeckVsTrainMain
 		//mainWindow.addImages(myImages);
 		//initializeEggs();
 		//initializeTrains();
-		Chicken myChick = new Chicken(50, 50);
+		Chicken myChick = new Chicken(400, 400);
+		mainWindow.getFrame().addKeyListener(myChick);
 		mainWindow.add(myChick);
-		myChick.setLocation(500, 500);
 		mainWindow.setVisible(true);
+		System.out.println(myChick.getLocation());
+		System.out.println(myChick.getSize());
 	}
 	
 	/*------------------------------------------------------------------------------
