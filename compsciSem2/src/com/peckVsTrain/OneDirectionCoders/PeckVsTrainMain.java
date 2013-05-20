@@ -1,13 +1,11 @@
 package com.peckVsTrain.OneDirectionCoders;
 
-import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class PeckVsTrainMain 
 
-{
-	private static String[] myURLs; //holds all of the file URLs in order to load all of the images easily//
+{ 
 	private static JLabel[] myImages;
 	private static Egg[] eggsList;
 	private static Train[] trainsList;
@@ -34,7 +32,7 @@ public class PeckVsTrainMain
 		//loadImages(myURLs); 
 		//mainWindow.addImages(myImages);
 		//initializeEggs();
-		//initializeTrains();
+		initializeTrains();
 		Chicken myChick = new Chicken(400, 400);
 		mainWindow.getFrame().addKeyListener(myChick);
 		mainWindow.add(myChick);

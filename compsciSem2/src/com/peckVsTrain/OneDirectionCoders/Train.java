@@ -6,8 +6,13 @@ import javax.swing.JLabel;
 
 public class Train extends JComponent
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int speed;
-	private String[] trainURLs = new String[] {"","",""};
+	private String[] trainURLs = new String[] {"Resources/red train left.jpeg", "Resources/redtrain right.jpeg", 
+			"Resources/train right.jpeg", "Resources/train left.jpeg"};
 	private JLabel trainLabel;
 	public Train(int initialSpeed)
 	{
