@@ -24,11 +24,11 @@ public class InvisibleGrid
 	{
 		for(int i = 0; i < xCoords.length; i++)
 		{
-			xCoords[i] = i*screenSize.width;
+			xCoords[i] = i*screenSize.width/16;
 		}
 		for(int j = 0; j < yCoords.length; j++)
 		{
-			yCoords[j] = j*screenSize.height;
+			yCoords[j] = j*screenSize.height/9;
 		}
 		grid = new int[][] {xCoords, yCoords};
 	}

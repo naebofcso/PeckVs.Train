@@ -19,6 +19,7 @@ public class Train extends JComponent
 		speed = initialSpeed;
 		ImageIcon trainImage = new ImageIcon(trainURLs[(int) (Math.random()*trainURLs.length)]);
 		trainLabel = new JLabel("", trainImage, JLabel.CENTER);
+		trainLabel.setSize(trainImage.getIconWidth(), trainImage.getIconHeight());
 	}
 	
 

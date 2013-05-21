@@ -196,7 +196,7 @@ private InvisibleGrid myGrid;
 			setLocation(col, row -1);
 			row--;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_DOWN && row < myGrid.getYCoords().length-1)
+		if(e.getKeyCode() == KeyEvent.VK_DOWN && row < myGrid.getYCoords().length-2)
 		{
 			switchLabels(currentChickLabel, chickLabels[1]);
 			setLocation(col, row + 1);
@@ -208,7 +208,7 @@ private InvisibleGrid myGrid;
 			setLocation(col - 1, row);
 			col--;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT && col < myGrid.getXCoords().length-1)
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT && col < myGrid.getXCoords().length-2)
 		{
 			switchLabels(currentChickLabel, chickLabels[3]);
 			setLocation(col + 1, row);
