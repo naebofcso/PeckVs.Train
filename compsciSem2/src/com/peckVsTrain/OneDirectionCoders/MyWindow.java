@@ -107,7 +107,10 @@ public class MyWindow extends JComponent
 	//------------------------------------------------------------------------------
 	public void add(Chicken chicken)
 	{
-		contentArea.add(chicken.getImage());
+		for(int i = 0; i < chicken.getImageArray().length; i++)
+		{
+			contentArea.add(chicken.getImageArray()[i]);
+		}
 	}
 	
 	/*------------------------------------------------------------------------------

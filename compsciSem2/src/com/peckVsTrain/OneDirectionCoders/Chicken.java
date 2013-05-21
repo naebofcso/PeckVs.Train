@@ -5,9 +5,7 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import javax.swing.ImageIcon;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 
  
@@ -29,16 +27,19 @@ private JLabel[] chickLabels;
 private String[] chickURLs;
 private int row;
 private int col;
-//Needs instance variables for its various states using booleans to modify//
-//its behavior//
+private int garbageX;
+private int garbageY;
+private InvisibleGrid myGrid;
+
 /**
 	 * @param args
 	 */
 	
-	public Chicken(int x, int y)
+	public Chicken(int x, int y, InvisibleGrid grid)
 	{
 		col = x;
 		row = y;
+		myGrid = grid;
 		MAX_LIVES = 5;
 		MULTIPLIER = 15;
 		numLives = 3;
@@ -50,6 +51,8 @@ private int col;
 		initializeLabels();
 		currentChickLabel = chickLabels[0];
 		setLocation(col, row);
+		garbageX = -200;
+		garbageY = -200;
 	}
 	
 
@@ -74,6 +77,10 @@ private int col;
 			ImageIcon chickImage = new ImageIcon(chickURLs[i]);
 			chickLabels[i] = new JLabel("", chickImage, JLabel.CENTER);
 			chickLabels[i].setSize(chickImage.getIconWidth(), chickImage.getIconHeight());
+			if(i > 0)
+			{
+				chickLabels[i].setLocation(garbageX, garbageY);
+			}
 		}
 	}
 
@@ -98,7 +105,7 @@ private int col;
 	//------------------------------------------------------------------------------
 	public int getRow()
 	{
-		return getLocation().x;
+		return row;
 	}
 	
 
@@ -116,7 +123,7 @@ private int col;
 	//------------------------------------------------------------------------------
 	public int getCol()
 	{
-		return getLocation().y;
+		return col;
 	}
 	
 
@@ -152,9 +159,7 @@ private int col;
 	//------------------------------------------------------------------------------
 	public void setLocation(int x, int y)
 	{
-		currentChickLabel.setLocation(x, y);
-		row = y;
-		col = x;
+		currentChickLabel.setLocation(myGrid.getXCoords()[x], myGrid.getYCoords()[y]);
 	}
 	
 	/*------------------------------------------------------------------------------
@@ -185,25 +190,29 @@ private int col;
 	@Override
 	public void keyPressed(KeyEvent e) 
 	{
-		if(e.getKeyCode() == KeyEvent.VK_UP)
+		if(e.getKeyCode() == KeyEvent.VK_UP && row > 0)
 		{
-			setLocation(col, row - 10);
-			row = row - 10;
+			switchLabels(currentChickLabel, chickLabels[0]);
+			setLocation(col, row -1);
+			row--;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_DOWN)
+		if(e.getKeyCode() == KeyEvent.VK_DOWN && row < myGrid.getYCoords().length-1)
 		{
-			setLocation(col, row + 10);
-			row = row + 10;
+			switchLabels(currentChickLabel, chickLabels[1]);
+			setLocation(col, row + 1);
+			row++;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_LEFT)
+		if(e.getKeyCode() == KeyEvent.VK_LEFT && col > 0)
 		{
-			setLocation(col - 10, row);
-			col = col - 10;
+			switchLabels(currentChickLabel, chickLabels[2]);
+			setLocation(col - 1, row);
+			col--;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT && col < myGrid.getXCoords().length-1)
 		{
-			setLocation(col + 10, row);
-			col = col + 10;
+			switchLabels(currentChickLabel, chickLabels[3]);
+			setLocation(col + 1, row);
+			col++;
 		}
 	}
 
@@ -215,5 +224,19 @@ private int col;
 	public Dimension getSize()
 	{
 		return currentChickLabel.getSize();
+	}
+	
+	public void switchLabels(JLabel label1, JLabel label2)
+	{
+		int x = label1.getX();
+		int y = label1.getY();
+		label1.setLocation(garbageX, garbageY);
+		label2.setLocation(x, y);
+		currentChickLabel = label2;
+	}
+	
+	public JLabel[] getImageArray()
+	{
+		return chickLabels;
 	}
 }
