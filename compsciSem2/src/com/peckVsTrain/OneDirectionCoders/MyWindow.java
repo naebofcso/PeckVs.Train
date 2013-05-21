@@ -20,6 +20,7 @@ public class MyWindow extends JComponent
 	private final double SCALING_FACTOR;
 	private JFrame frame;
 	private final Dimension DEFAULT_SIZE;
+	private Dimension currentSize;
 	private JPanel contentArea;
 	private int[] xCoords; //x coordinates for images that need to be pre-loaded onto the screen//
 	private int[] yCoords;//y coordinates for images that need to be pre-loaded onto the screen//
@@ -31,9 +32,9 @@ public class MyWindow extends JComponent
 		DEFAULT_HEIGHT = 720;
 		DEFAULT_SIZE = new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		SCALING_FACTOR = 0.8;
+		currentSize = null;
 		initialize();
 		setLayout(null);
-		InvisibleGrid myGrid = new InvisibleGrid();
 	}
 	
 	/*------------------------------------------------------------------------------
@@ -56,10 +57,12 @@ public class MyWindow extends JComponent
 			Dimension modSize = new Dimension(
 			(int) (DEFAULT_WIDTH *SCALING_FACTOR), (int) (DEFAULT_HEIGHT *SCALING_FACTOR));
 			frame.setPreferredSize(modSize);
+			currentSize = modSize;
 		}
 		else
 		{
 			frame.setPreferredSize(DEFAULT_SIZE);
+			currentSize = DEFAULT_SIZE;
 		}
 		frame.setTitle("Peck Vs. Train");
 		contentArea = new JPanel();
@@ -139,6 +142,11 @@ public class MyWindow extends JComponent
 	public void add(Egg egg)
 	{
 		contentArea.add(egg.getImage());
+	}
+	
+	public void add(Button button)
+	{
+		contentArea.add(button.getImage());
 	}
 	
 	/*------------------------------------------------------------------------------
@@ -257,6 +265,11 @@ public class MyWindow extends JComponent
 		 }
 	 }
 	
+	 public Dimension getSize()
+	 {
+		 return currentSize;
+	 }
+	 
 	public JFrame getFrame()
 	{
 		return frame;

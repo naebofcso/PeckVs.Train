@@ -1,5 +1,6 @@
 package com.peckVsTrain.OneDirectionCoders;
 
+import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -10,13 +11,14 @@ public class Button implements MouseListener
 {
 	private String buttonName;
 	private boolean activated;
+	private JLabel buttonLabel;
 	
 	public Button(String name)
 	{
 		buttonName = name;
 		activated = false;
-		ImageIcon testIcon = new ImageIcon("Resources/pause button.png");
-		JLabel buttonLabel = new JLabel("", testIcon, JLabel.CENTER);
+		ImageIcon testIcon = new ImageIcon("Resources/pausebutton.png");
+		buttonLabel = new JLabel("", testIcon, JLabel.CENTER);
 		buttonLabel.setSize(testIcon.getIconWidth(), testIcon.getIconHeight());
 		buttonLabel.addMouseListener(this);
 	}
@@ -52,5 +54,19 @@ public class Button implements MouseListener
 	{
 		return buttonName;
 	}
-
+	
+	public JLabel getImage()
+	{
+		return buttonLabel;
+	}
+	
+	public void setLocation(int x, int y)
+	{
+		buttonLabel.setLocation(x, y);
+	}
+	
+	public Dimension getSize()
+	{
+		return buttonLabel.getSize();
+	}
 }

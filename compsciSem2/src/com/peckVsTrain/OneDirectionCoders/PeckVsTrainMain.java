@@ -33,12 +33,15 @@ public class PeckVsTrainMain
 		//mainWindow.addImages(myImages);
 		//initializeEggs();
 		initializeTrains();
+		InvisibleGrid myGrid = new InvisibleGrid(mainWindow.getSize());
 		Chicken myChick = new Chicken(400, 400);
 		mainWindow.getFrame().addKeyListener(myChick);
 		mainWindow.add(myChick);
+		Button myButton = new Button("PauseButton");
+		myButton.setLocation(100,100);
+		mainWindow.add(myButton);
 		mainWindow.setVisible(true);
-		System.out.println(myChick.getLocation());
-		System.out.println(myChick.getSize());
+		System.out.println(myButton.getSize());
 	}
 	
 	/*------------------------------------------------------------------------------
