@@ -41,7 +41,7 @@ public class PeckVsTrainMain
 		Chicken myChick = new Chicken(3, 3, myGrid);
 		mainWindow.getFrame().addKeyListener(myChick);
 		mainWindow.add(myChick);
-		//Button myButton = new Button("PauseButton");
+		Button myButton = new Button("PauseButton");
 		//myButton.setLocation(100,100);
 		//mainWindow.add(myButton);
 		mainWindow.add(backgroundLabel);

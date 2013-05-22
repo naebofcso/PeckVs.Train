@@ -46,8 +46,8 @@ private InvisibleGrid myGrid;
 		invincible = false;
 		multiplierFifteen = false;
 		isSmall = false;
-		chickURLs = new String[] {"Resources/chickenup.jpeg", "Resources/chickendown.jpeg", 
-								  "Resources/chickenleft.jpeg", "Resources/chickenright.jpeg"};
+		chickURLs = new String[] {"Resources/chickenup.png", "Resources/chickendown.png", 
+								  "Resources/chickenleft.png", "Resources/chickenright.png"};
 		initializeLabels();
 		currentChickLabel = chickLabels[0];
 		setLocation(col, row);
