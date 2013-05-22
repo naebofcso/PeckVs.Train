@@ -80,6 +80,7 @@ private InvisibleGrid myGrid;
 			if(i > 0)
 			{
 				chickLabels[i].setLocation(garbageX, garbageY);
+				chickLabels[i].setVisible(false);
 			}
 		}
 	}
@@ -233,6 +234,7 @@ private InvisibleGrid myGrid;
 		label1.setLocation(garbageX, garbageY);
 		label2.setLocation(x, y);
 		currentChickLabel = label2;
+		currentChickLabel.setVisible(true);
 	}
 	
 	public JLabel[] getImageArray()

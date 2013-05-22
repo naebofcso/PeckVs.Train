@@ -46,6 +46,7 @@ public class PeckVsTrainMain
 		//mainWindow.add(myButton);
 		mainWindow.add(backgroundLabel);
 		mainWindow.setVisible(true);
+		mainWindow.repaint();
 		//System.out.println(myButton.getSize());
 	}
 	
