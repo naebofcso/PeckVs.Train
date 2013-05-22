@@ -76,7 +76,9 @@ private InvisibleGrid myGrid;
 		{
 			ImageIcon chickImage = new ImageIcon(chickURLs[i]);
 			chickLabels[i] = new JLabel("", chickImage, JLabel.CENTER);
-			chickLabels[i].setSize(chickImage.getIconWidth(), chickImage.getIconHeight());
+			chickLabels[i].setSize(144, 144);
+			chickLabels[i].setOpaque(false);
+			System.out.println(chickLabels[i].getSize());
 			if(i > 0)
 			{
 				chickLabels[i].setLocation(garbageX, garbageY);
