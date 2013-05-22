@@ -12,7 +12,7 @@ public class Train extends JComponent
 	private static final long serialVersionUID = 1L;
 	private int speed;
 	private String[] trainURLs = new String[] {"Resources/red train left.jpeg", "Resources/redtrain right.jpeg", 
-			"Resources/train right.jpeg", "Resources/train left.jpeg"};
+			"Resources/train right.jpeg", "Resources/train left.jpeg", "Resources/train right copy.png"};
 	private JLabel trainLabel;
 	public Train(int initialSpeed)
 	{
@@ -74,5 +74,10 @@ public class Train extends JComponent
 	public int getSpeed()
 	{
 		return speed;
+	}
+	
+	public void setLocation(int x, int y)
+	{
+		trainLabel.setLocation(x, y);
 	}
 }

@@ -10,7 +10,8 @@ public class PeckVsTrainMain
 	private static Egg[] eggsList;
 	private static Train[] trainsList;
 	private static MyWindow mainWindow;
-	
+	private static JLabel backgroundLabel;
+	private static String trainURL; 
 	/**
 	 * @param args
 	 */
@@ -31,17 +32,19 @@ public class PeckVsTrainMain
 		mainWindow = new MyWindow();
 		//loadImages(myURLs); 
 		//mainWindow.addImages(myImages);
-		//initializeEggs();
+		//initializeEggs(); 
+		loadBackground();
 		initializeTrains();
+		trainsList[0].setLocation(400, 400);
+		mainWindow.add(trainsList[0]);
 		InvisibleGrid myGrid = new InvisibleGrid(mainWindow.getSize());
 		Chicken myChick = new Chicken(3, 3, myGrid);
 		mainWindow.getFrame().addKeyListener(myChick);
 		mainWindow.add(myChick);
-		trainsList[0].setLocation(400, 400);
-		mainWindow.add(trainsList[0]);
 		//Button myButton = new Button("PauseButton");
 		//myButton.setLocation(100,100);
 		//mainWindow.add(myButton);
+		mainWindow.add(backgroundLabel);
 		mainWindow.setVisible(true);
 		//System.out.println(myButton.getSize());
 	}
@@ -131,6 +134,12 @@ public class PeckVsTrainMain
 		return mainWindow;
 	}
 	
+	public static void loadBackground()
+	{
+		ImageIcon backgroundImage = new ImageIcon( "Resources/back-ground.jpeg");
+		backgroundLabel = new JLabel("", backgroundImage, JLabel.CENTER);
+		backgroundLabel.setSize(1080, 720);
+	}
 	
 	
 	

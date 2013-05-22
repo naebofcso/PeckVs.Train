@@ -173,6 +173,11 @@ public class MyWindow extends JComponent
 		}
     }
 	
+	public void add(JLabel label)
+	{
+		contentArea.add(label);
+	}
+	
 	/*------------------------------------------------------------------------------
 
 	@name       setVisible - makes window visible
