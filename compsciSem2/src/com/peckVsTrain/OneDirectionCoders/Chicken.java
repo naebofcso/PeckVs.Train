@@ -8,7 +8,6 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -80,6 +79,7 @@ private InvisibleGrid myGrid;
 		BufferedImage[] myImages = new BufferedImage[4];
 		for(int i = 0; i < chickLabels.length; i++)
 		{
+			
 			try
 			{
 				myImages[i] = ImageIO.read(new File(chickURLs[i]));
@@ -198,9 +198,7 @@ private InvisibleGrid myGrid;
 
 	@Override
 	public void keyTyped(KeyEvent e) 
-	{
-		
-	}
+	{}
 
 
 	@Override
