@@ -5,6 +5,11 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -72,9 +77,17 @@ private InvisibleGrid myGrid;
 	public void initializeLabels()
 	{
 		chickLabels = new JLabel[4];
+		BufferedImage[] myImages = new BufferedImage[4];
 		for(int i = 0; i < chickLabels.length; i++)
 		{
-			ImageIcon chickImage = new ImageIcon(chickURLs[i]);
+			try
+			{
+				myImages[i] = ImageIO.read(new File(chickURLs[i]));
+			}
+			catch(IOException e)
+			{}
+			
+			ImageIcon chickImage = new ImageIcon(myImages[i]);
 			chickLabels[i] = new JLabel("", chickImage, JLabel.CENTER);
 			chickLabels[i].setSize(144, 144);
 			chickLabels[i].setOpaque(false);
