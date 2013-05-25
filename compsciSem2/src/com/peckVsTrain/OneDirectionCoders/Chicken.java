@@ -2,6 +2,7 @@ package com.peckVsTrain.OneDirectionCoders;
 
 
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -76,7 +77,7 @@ private InvisibleGrid myGrid;
 	public void initializeLabels()
 	{
 		chickLabels = new JLabel[4];
-		BufferedImage[] myImages = new BufferedImage[4];
+		Image[] myImages = new BufferedImage[4];
 		for(int i = 0; i < chickLabels.length; i++)
 		{
 			
