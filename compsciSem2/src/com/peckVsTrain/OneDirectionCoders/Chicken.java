@@ -77,21 +77,12 @@ private InvisibleGrid myGrid;
 	public void initializeLabels()
 	{
 		chickLabels = new JLabel[4];
-		Image[] myImages = new BufferedImage[4];
 		for(int i = 0; i < chickLabels.length; i++)
 		{
-			
-			try
-			{
-				myImages[i] = ImageIO.read(new File(chickURLs[i]));
-			}
-			catch(IOException e)
-			{}
-			
-			ImageIcon chickImage = new ImageIcon(myImages[i]);
-			chickLabels[i] = new JLabel("", chickImage, JLabel.CENTER);
-			chickLabels[i].setSize(144, 144);
-			chickLabels[i].setOpaque(false);
+			ImageIcon chickImage = new ImageIcon(chickURLs[i]);
+			chickLabels[i] = new JLabel(chickImage);
+			//chickLabels[i].setIcon(chickImage);
+			chickLabels[i].setSize(chickImage.getIconWidth(), chickImage.getIconHeight());
 			System.out.println(chickLabels[i].getSize());
 			if(i > 0)
 			{

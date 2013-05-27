@@ -2,7 +2,10 @@ package com.peckVsTrain.OneDirectionCoders;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
+
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -66,7 +69,7 @@ public class MyWindow extends JComponent
 		}
 		frame.setTitle("Peck Vs. Train");
 		contentArea = new JPanel();
-		contentArea.setBackground(Color.white);
+		contentArea.setBackground(Color.black);
 		contentArea.setName(frame.getRootPane().getName() + ".contentArea");
 		contentArea.setLayout(null);
 		frame.setContentPane(contentArea);
@@ -175,8 +178,9 @@ public class MyWindow extends JComponent
 	
 	public void add(JLabel label)
 	{
-		contentArea.add(label);
+		frame.add(label);
 	}
+	
 	
 	/*------------------------------------------------------------------------------
 

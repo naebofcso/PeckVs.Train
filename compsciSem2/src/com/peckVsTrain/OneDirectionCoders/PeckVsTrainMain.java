@@ -41,12 +41,12 @@ public class PeckVsTrainMain
 		Chicken myChick = new Chicken(3, 3, myGrid);
 		mainWindow.getFrame().addKeyListener(myChick);
 		mainWindow.add(myChick);
-		Button myButton = new Button("PauseButton");
+		//Button myButton = new Button("PauseButton");
 		//myButton.setLocation(100,100);
 		//mainWindow.add(myButton);
-		mainWindow.add(backgroundLabel);
+		//mainWindow.add(backgroundLabel);
+		System.out.println(backgroundLabel.getSize());
 		mainWindow.setVisible(true);
-		mainWindow.repaint();
 		//System.out.println(myButton.getSize());
 	}
 	
@@ -137,9 +137,10 @@ public class PeckVsTrainMain
 	
 	public static void loadBackground()
 	{
-		ImageIcon backgroundImage = new ImageIcon( "Resources/back-ground.jpeg");
-		backgroundLabel = new JLabel("", backgroundImage, JLabel.CENTER);
-		backgroundLabel.setSize(1080, 720);
+		ImageIcon backgroundImage = new ImageIcon("Resources/backgroundddd.jpeg");
+		backgroundLabel = new JLabel(backgroundImage);
+		//backgroundLabel.setIcon(backgroundImage);
+		backgroundLabel.setSize(backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
 	}
 	
 	
