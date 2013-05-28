@@ -17,7 +17,7 @@ public class Train extends JComponent
 	public Train(int initialSpeed)
 	{
 		speed = initialSpeed;
-		ImageIcon trainImage = null;
+		ImageIcon trainImage = new ImageIcon();
 		if(initialSpeed < 0)
 		{
 		 trainImage = new ImageIcon(trainURLs[0]);
@@ -98,5 +98,15 @@ public class Train extends JComponent
 	public int getHeight()
 	{
 		return trainLabel.getHeight();
+	}
+	
+	public int getX()
+	{
+		return trainLabel.getX();
+	}
+	
+	public int getY()
+	{
+		return trainLabel.getY();
 	}
 }

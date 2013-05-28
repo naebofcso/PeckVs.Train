@@ -10,8 +10,7 @@ public class PeckVsTrainMain
 	private static Egg[] eggsList;
 	private static Train[] trainsList;
 	private static MyWindow mainWindow;
-	private static JLabel backgroundLabel;
-	private static String trainURL; 
+	private static JLabel backgroundLabel; 
 	private static InvisibleGrid myInvisibleGrid;
 	/**
 	 * @param args
@@ -31,24 +30,23 @@ public class PeckVsTrainMain
 	public static void main(String[] args) 
 	{
 		mainWindow = new MyWindow();
-		//loadImages(myURLs); 
-		//mainWindow.addImages(myImages);
+		myInvisibleGrid = new InvisibleGrid();
 		loadBackground();
 		trainsList = initializeTrains(5);
 		addTrains(trainsList);
-		myInvisibleGrid = new InvisibleGrid();
 		initializeEggs(myInvisibleGrid);
-		Chicken myChick = new Chicken(3, 3, myInvisibleGrid);
+		Chicken myChick = new Chicken(5, 6, myInvisibleGrid);
 		mainWindow.getFrame().addKeyListener(myChick);
 		mainWindow.add(myChick);
 		//Button myButton = new Button("PauseButton");
 		//myButton.setLocation(100,100);
 		//mainWindow.add(myButton);
+		eggsList[0].setLocation(2,2);
+		mainWindow.add(eggsList[0]);
 		mainWindow.add(backgroundLabel);
 		System.out.println(backgroundLabel.getSize());
 		mainWindow.setVisible(true);
 		start();
-		//System.out.println(myButton.getSize());
 	}
 	
 	/*------------------------------------------------------------------------------
@@ -130,15 +128,16 @@ public class PeckVsTrainMain
 		{
 			if(i%2 == 0)
 			{
-			temp[i] = new Train(1);
+			temp[i] = new Train(i+1);
 			}
 			if(i%2 == 1)
 			{
-				temp[i] = new Train(-1);
+				temp[i] = new Train((-i-1));
 			}
 		}
 		return temp;
 	}
+	
 	public MyWindow getWindow()
 	{
 		return mainWindow;
@@ -156,26 +155,57 @@ public class PeckVsTrainMain
 	{
 		for(int i = 0; i < trains.length; i++)
 		{
+			mainWindow.add(trains[i]);
 			if(trains[i].getSpeed() < 0)
 			{
-				trains[i].setLocation(mainWindow.getWidth(), myInvisibleGrid.getYCoords()[i+1]);
+				trains[i].setLocation(1280 + trainsList[i].getSpeed()*200, myInvisibleGrid.getYCoords()[i+1]);
 			}
 			if(trains[i].getSpeed() > 0)
 			{
-				trains[i].setLocation(-504, myInvisibleGrid.getYCoords()[i+1]);
+				trains[i].setLocation(-504 + trainsList[i].getSpeed()*200, myInvisibleGrid.getYCoords()[i+1]);
 			}
-			mainWindow.add(trains[i]);
+			
 		}
 	}
 	
 	public static void start()
 	{
-		
+		while(true)
+		{
+			for(int i = 0; i < trainsList.length; i++)
+			{
+				if(trainsList[i].getSpeed() > 0 && trainsList[i].getX() < 1280)
+				{
+					trainsList[i].setLocation(trainsList[i].getX() + trainsList[i].getSpeed()*2, trainsList[i].getY());
+				}
+				else if(trainsList[i].getSpeed() < 0 && trainsList[i].getX() > -505)
+				{
+					trainsList[i].setLocation(trainsList[i].getX() + trainsList[i].getSpeed()*2, trainsList[i].getY());
+				}
+				else
+				{
+					reset(trainsList[i]);
+				}
+			}
+			try {
+				Thread.sleep(20);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public static void reset(Train train)
 	{
-		
+		if(train.getSpeed() < 0)
+		{
+			train.setLocation(1280, train.getY());
+		}
+		if(train.getSpeed() > 0)
+		{
+			train.setLocation(-504, train.getY());
+		}
 	}
 	
 	

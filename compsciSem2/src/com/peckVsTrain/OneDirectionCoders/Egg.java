@@ -27,6 +27,7 @@ public class Egg extends JComponent
 		eggColor = inputColor;
 		eggProperty = property;
 		initializeImage(eggColor);
+		System.out.println(eggImage.getSize());
 	}
 	
 	/*------------------------------------------------------------------------------
@@ -107,6 +108,7 @@ public class Egg extends JComponent
 			eggIcon = new ImageIcon(eggImageURLs[6]);
 		}
 		eggImage = new JLabel("", eggIcon, JLabel.CENTER);
+		eggImage.setSize(144, 144);
 	}
 	
 	/*------------------------------------------------------------------------------
@@ -124,7 +126,10 @@ public class Egg extends JComponent
 	//------------------------------------------------------------------------------
 	public void setLocation(int x, int y)
 	{
-		eggImage.setLocation(x, y);
+		if(x > 0 && y > 0 && y < 6)
+		{
+		eggImage.setLocation(myGrid.getXCoords()[x], myGrid.getYCoords()[y]);
+		}
 		row = y;
 		col = x;
 	}
