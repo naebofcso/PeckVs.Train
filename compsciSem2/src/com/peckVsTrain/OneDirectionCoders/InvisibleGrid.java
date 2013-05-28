@@ -8,16 +8,12 @@ public class InvisibleGrid
 	private int[] xCoords;
 	private int[] yCoords;
 	private int[][] grid;
-	public InvisibleGrid(Dimension size)
-	{
-		screenSize = size;
-		xCoords = new int[size.width/(size.width/16)];
-		yCoords = new int[size.height/(size.height/9)];
-		initializeCoords();
-	}
 	public InvisibleGrid()
 	{
-		//default constructor//
+		screenSize = new Dimension(1280, 721);
+		xCoords = new int[screenSize.width/(screenSize.width/16)];
+		yCoords = new int[7];
+		initializeCoords();
 	}
 	
 	public void initializeCoords()
@@ -28,7 +24,7 @@ public class InvisibleGrid
 		}
 		for(int j = 0; j < yCoords.length; j++)
 		{
-			yCoords[j] = j*screenSize.height/9;
+			yCoords[j] = j*screenSize.height/7-50 + j*5 + j;
 		}
 		grid = new int[][] {xCoords, yCoords};
 	}

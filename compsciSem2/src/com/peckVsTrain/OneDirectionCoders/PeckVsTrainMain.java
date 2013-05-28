@@ -12,6 +12,7 @@ public class PeckVsTrainMain
 	private static MyWindow mainWindow;
 	private static JLabel backgroundLabel;
 	private static String trainURL; 
+	private static InvisibleGrid myInvisibleGrid;
 	/**
 	 * @param args
 	 */
@@ -32,21 +33,21 @@ public class PeckVsTrainMain
 		mainWindow = new MyWindow();
 		//loadImages(myURLs); 
 		//mainWindow.addImages(myImages);
-		//initializeEggs(); 
 		loadBackground();
-		initializeTrains();
-		trainsList[0].setLocation(400, 400);
-		mainWindow.add(trainsList[0]);
-		InvisibleGrid myGrid = new InvisibleGrid(mainWindow.getSize());
-		Chicken myChick = new Chicken(3, 3, myGrid);
+		trainsList = initializeTrains(5);
+		addTrains(trainsList);
+		myInvisibleGrid = new InvisibleGrid();
+		initializeEggs(myInvisibleGrid);
+		Chicken myChick = new Chicken(3, 3, myInvisibleGrid);
 		mainWindow.getFrame().addKeyListener(myChick);
 		mainWindow.add(myChick);
 		//Button myButton = new Button("PauseButton");
 		//myButton.setLocation(100,100);
 		//mainWindow.add(myButton);
-		//mainWindow.add(backgroundLabel);
+		mainWindow.add(backgroundLabel);
 		System.out.println(backgroundLabel.getSize());
 		mainWindow.setVisible(true);
+		start();
 		//System.out.println(myButton.getSize());
 	}
 	
@@ -86,26 +87,26 @@ public class PeckVsTrainMain
 	@param      null     
 	                                                                              */
 	//------------------------------------------------------------------------------
-	public static void initializeEggs()
+	public static void initializeEggs(InvisibleGrid grid)
 	{
 		eggsList = new Egg[20];
 		for(int i = 0; i < eggsList.length; i++)
 		{
 			if(i < 10)
 			{
-				eggsList[i] = new Egg("White", "Normal");
+				eggsList[i] = new Egg("White", "Normal", grid);
 			}
 			if(i >= 10 && i < 15)
 			{
-				eggsList[i] = new Egg("Green", "Multiplier");
+				eggsList[i] = new Egg("Green", "Multiplier", grid);
 			}
 			if(i >= 15 && i < 18)
 			{
-				eggsList[i] = new Egg("Black", "Death");
+				eggsList[i] = new Egg("Black", "Death", grid);
 			}
 			if(i >=18)
 			{
-				eggsList[i] = new Egg("Gold", "Life");
+				eggsList[i] = new Egg("Orange", "Life" , grid);
 			}
 		}
 	}
@@ -122,13 +123,21 @@ public class PeckVsTrainMain
 	@param      null     
 	                                                                              */
 	//------------------------------------------------------------------------------
-	public static void initializeTrains()
+	public static Train[] initializeTrains(int numTrains)
 	{
-		trainsList = new Train[10];
-		for(int i = 0; i < trainsList.length; i++)
+		Train[] temp = new Train[numTrains];
+		for(int i = 0; i < numTrains; i++)
 		{
-			trainsList[i] = new Train(1);
+			if(i%2 == 0)
+			{
+			temp[i] = new Train(1);
+			}
+			if(i%2 == 1)
+			{
+				temp[i] = new Train(-1);
+			}
 		}
+		return temp;
 	}
 	public MyWindow getWindow()
 	{
@@ -143,6 +152,31 @@ public class PeckVsTrainMain
 		backgroundLabel.setSize(backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
 	}
 	
+	public static void addTrains(Train[] trains)
+	{
+		for(int i = 0; i < trains.length; i++)
+		{
+			if(trains[i].getSpeed() < 0)
+			{
+				trains[i].setLocation(mainWindow.getWidth(), myInvisibleGrid.getYCoords()[i+1]);
+			}
+			if(trains[i].getSpeed() > 0)
+			{
+				trains[i].setLocation(-504, myInvisibleGrid.getYCoords()[i+1]);
+			}
+			mainWindow.add(trains[i]);
+		}
+	}
+	
+	public static void start()
+	{
+		
+	}
+	
+	public static void reset(Train train)
+	{
+		
+	}
 	
 	
 }

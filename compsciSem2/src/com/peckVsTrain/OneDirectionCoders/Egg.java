@@ -17,10 +17,13 @@ public class Egg extends JComponent
 	private JLabel eggImage;
 	private int row;
 	private int col;
-	private String[] eggImageURLs = new String[]{"", "", "", ""};
+	private String[] eggImageURLs = new String[]{"Egg_Point.png", "Egg_ScoreX15.png", "Egg_Hurt.png", 
+			" Egg_Life.png", "Egg_Invincibility.png", "Egg_Shrink.png", "Egg_Speed.png"};
+	private InvisibleGrid myGrid;
 	
-	public Egg(String inputColor, String property)
+	public Egg(String inputColor, String property, InvisibleGrid grid)
 	{
+		myGrid = grid;
 		eggColor = inputColor;
 		eggProperty = property;
 		initializeImage(eggColor);
@@ -87,9 +90,21 @@ public class Egg extends JComponent
 		{
 			eggIcon = new ImageIcon(eggImageURLs[2]);
 		}
-		if(color.equals("gold") || color.equals("Gold"))
+		if(color.equals("orange") || color.equals("Orange"))
 		{
 			eggIcon = new ImageIcon(eggImageURLs[3]);
+		}
+		if(color.equals("gold") || color.equals("Gold"))
+		{
+			eggIcon = new ImageIcon(eggImageURLs[4]);
+		}
+		if(color.equals("pink") || color.equals("Pink"))
+		{
+			eggIcon = new ImageIcon(eggImageURLs[5]);
+		}
+		if(color.equals("red") || color.equals("Red"))
+		{
+			eggIcon = new ImageIcon(eggImageURLs[6]);
 		}
 		eggImage = new JLabel("", eggIcon, JLabel.CENTER);
 	}

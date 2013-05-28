@@ -11,15 +11,24 @@ public class Train extends JComponent
 	 */
 	private static final long serialVersionUID = 1L;
 	private int speed;
-	private String[] trainURLs = new String[] {"Resources/train right copy.png", "Resources/Train_Left.png", 
+	private String[] trainURLs = new String[] {"Resources/Train_Left.png", 
 			"Resources/Train_Right.png"};
 	private JLabel trainLabel;
 	public Train(int initialSpeed)
 	{
 		speed = initialSpeed;
-		ImageIcon trainImage = new ImageIcon(trainURLs[(int) (Math.random()*trainURLs.length)]);
+		ImageIcon trainImage = null;
+		if(initialSpeed < 0)
+		{
+		 trainImage = new ImageIcon(trainURLs[0]);
+		}
+		if(initialSpeed > 0)
+		{
+		 trainImage = new ImageIcon(trainURLs[1]);
+		}
 		trainLabel = new JLabel("", trainImage, JLabel.CENTER);
 		trainLabel.setSize(trainImage.getIconWidth(), trainImage.getIconHeight());
+		System.out.println(trainLabel.getSize());
 	}
 	
 
@@ -79,5 +88,15 @@ public class Train extends JComponent
 	public void setLocation(int x, int y)
 	{
 		trainLabel.setLocation(x, y);
+	}
+	
+	public int getWidth()
+	{
+		return trainLabel.getWidth();
+	}
+	
+	public int getHeight()
+	{
+		return trainLabel.getHeight();
 	}
 }

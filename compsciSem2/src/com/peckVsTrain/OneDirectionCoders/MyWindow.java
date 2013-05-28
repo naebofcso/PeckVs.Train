@@ -32,7 +32,7 @@ public class MyWindow extends JComponent
 	{
 		super();
 		DEFAULT_WIDTH = 1280;
-		DEFAULT_HEIGHT = 720;
+		DEFAULT_HEIGHT = 750;
 		DEFAULT_SIZE = new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		SCALING_FACTOR = 0.8;
 		currentSize = null;

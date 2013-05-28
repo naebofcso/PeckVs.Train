@@ -196,13 +196,13 @@ private InvisibleGrid myGrid;
 	@Override
 	public void keyPressed(KeyEvent e) 
 	{
-		if(e.getKeyCode() == KeyEvent.VK_UP && row > 0)
+		if(e.getKeyCode() == KeyEvent.VK_UP && row > 1)
 		{
 			switchLabels(currentChickLabel, chickLabels[0]);
 			setLocation(col, row -1);
 			row--;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_DOWN && row < myGrid.getYCoords().length-2)
+		if(e.getKeyCode() == KeyEvent.VK_DOWN && row < myGrid.getYCoords().length-1)
 		{
 			switchLabels(currentChickLabel, chickLabels[1]);
 			setLocation(col, row + 1);
